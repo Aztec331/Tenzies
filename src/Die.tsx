@@ -1,5 +1,5 @@
 type DieProps ={
-    value: number,
+    value: number
 }
 
 export default function Die(props: DieProps){

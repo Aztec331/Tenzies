@@ -5,9 +5,9 @@
 body {
 
     min-height: 100vh;
-
     margin: 0;
     background-color: #0B2434;
+    font-family: Inter, sans-serif;
 
     display: flex;
     justify-content: center;  
@@ -23,7 +23,6 @@ body {
     max-width: 800px;
 
 }
-
 
 main {
     background-color: #F5F5F5;
@@ -42,11 +41,12 @@ main {
   width: 100px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-  border-radius: 6px;
+  border-radius: 10px;
   border: none;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
   font-weight: bold;
   font-size: 3rem;
+  cursor: pointer;
   
   display: flex;
   justify-content: center;
