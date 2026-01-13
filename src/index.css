@@ -12,7 +12,6 @@ body {
     display: flex;
     justify-content: center;  
     align-items: center;
-
 }
 
 #root{
@@ -31,12 +30,13 @@ main {
     border-radius: 5px;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-
 }
 
 .die {
+  font-family: Karla, sans-serif;
   height: 100px;
   width: 100px;
   background-color: #ffffff;
@@ -57,6 +57,19 @@ main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 40px;
+}
+
+.Roll_button {
+    font-family: Karla, sans-serif;
+    padding: 20px 90px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff00ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 

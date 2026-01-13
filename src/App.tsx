@@ -1,32 +1,46 @@
-/**
- * Challenge:
- * 
- * Create state to hold our array of numbers. (Initialize
- * the state by calling our `generateAllNewDice` function so it 
- * loads all new dice as soon as the app loads)
- * 
- * Map over the state numbers array to generate our array
- * of Die elements and render those in place of our
- * manually-written 10 Die elements.
- */
-
-
-import Die from "./Die"
+import Die from "./Die";
+import {useState} from "react";
 
 export default function App(){
 
+
+    /**
+     * Challenge: Update the array of numbers in state to be
+     * an array of objects instead. Each object should look like:
+     * { value: <random number>, isHeld: false }
+     * 
+     * Making this change will break parts of our code, so make
+     * sure to update things so we're back to a working state
+     */
+
+    type DiceSetType = {
+        value: number,
+        isHeld: boolean
+    } 
+
+
+    //Generates an array of 10 random dice values
     function generateAllNewDice(){
-        const DiceSet = []
+        const diceSet = []
 
         for(let i = 0; i < 10; i++){
-        DiceSet.push(Math.floor(Math.random() * 6) + 1)
-
+        diceSet.push({value: Math.floor(Math.random() * 6) + 1, 
+            isHeld: false})
         }
-        
-        return DiceSet
+
+        return diceSet
     }
 
-    console.log(generateAllNewDice())
+    const [dice, setDice] = useState(generateAllNewDice())
+
+    //dice = [1,2,3,4,5,6,1,2,3,4]  // Example array for testing
+
+    const diceElements = dice.map((num) => <Die value={num} />)
+    
+    //to shuffle all the dice
+    function shuffle(){
+        setDice(generateAllNewDice())
+    }
 
 
     return(
@@ -36,19 +50,10 @@ export default function App(){
         <main>
 
         <div className="container">
-
-         <Die value={1} />
-         <Die value={2} />
-         <Die value={3} />
-         <Die value={4} />
-         <Die value={5} />
-         <Die value={1} />
-         <Die value={1} />
-         <Die value={1} />
-         <Die value={1} />
-         <Die value={1} />
-
+        {diceElements}
         </div>
+
+        <button className="Roll_button" onClick={shuffle}>Roll</button>
 
         
         </main>
