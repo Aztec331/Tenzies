@@ -1,8 +1,17 @@
-const diceSet = []
+type Die = {
+    value: number;
+    isHeld: boolean;
+};
 
-        for(let i = 0; i < 10; i++){
-        diceSet.push({value: Math.floor(Math.random() * 6) + 1, 
-            isHeld: false})
-        }
+function generateAllNewDice(): Die[] {
+    const diceSet: Die[] = [];
 
-console.log(diceSet)
+    for (let i = 0; i < 10; i++) {
+        diceSet.push({
+            value: Math.floor(Math.random() * 6) + 1,
+            isHeld: false
+        });
+    }
+
+    return diceSet;
+}
