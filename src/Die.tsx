@@ -1,15 +1,13 @@
 type DieProps ={
-    value: number
+    value: number,
+    isHeld: boolean
 }
 
 export default function Die(props: DieProps){
 
-
 return(
-    <>
-    
-    <div className="die">{props.value}</div>
 
-    </>
+    <div className={`die ${props.isHeld ? "die-held" : ""}`} >{props.value} {props.isHeld}</div>
+
 )
 }
