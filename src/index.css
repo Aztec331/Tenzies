@@ -35,6 +35,21 @@ main {
     align-items: center;
 }
 
+.title {
+    font-size: 75px;
+    margin: 0;
+}
+
+.instructions {
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin-top: 0;
+    text-align: center;
+    margin-top: -80;
+    width: 50%;
+}
+
 /*die style*/
 .die {
   font-family: Karla, sans-serif;
@@ -60,7 +75,7 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
 }
 
-.container {
+.dice-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 40px;
