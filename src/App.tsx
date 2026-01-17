@@ -1,34 +1,21 @@
 import Die from "./Die";
 import {useState} from "react";
 import {nanoid} from "nanoid";
+import Confetti from "react-confetti";
+import { useWindowSize } from 'react-use';
 
 export default function App(){
 
-    const [dice, setDice] = useState(generateAllNewDice())
+    const [dice, setDice] = useState(()=> generateAllNewDice())
 
-    /**
-     * Challenge:
-     * Log "Game won!" to the console only if the 2 winning
-     * conditions are met.
-     * 
-     * 1. all the dice are being held, and
-     * 2. all the dice have the same value
-     * 
-     * For now, no need to even save a variable!
-     */
+    const { width, height } = useWindowSize();
 
-    //first condition: all dice have same value as first die
-    //second condition: all dice are held (isHeld = true)
-    if( dice.every( diceObj => 
+    const gameWon = dice.every( diceObj => 
         dice[0].value===diceObj.value) 
         &&
         dice.every(diceObj => 
-        diceObj.isHeld === true))
-    {
-        console.log("Game won!")
-    }
-
-
+        diceObj.isHeld === true)
+    
     type DiceSetType = {
         value: number,
         isHeld: boolean,
@@ -46,6 +33,11 @@ export default function App(){
 
         return diceSet
     }
+
+        /**
+     * Challenge: Allow the user to play a new game when the
+     * button is clicked
+     */
 
     //dice = [1,2,3,4,5,6,1,2,3,4]  // Example array for testing
     //obj means each object in the array
@@ -82,6 +74,8 @@ export default function App(){
     return(
 
         <main>
+        
+        {gameWon && (<Confetti width={width} height={height}/>)}
 
         <h1 className="title">Tenzies</h1>
 
@@ -90,12 +84,11 @@ export default function App(){
         Click each die to freeze it at its current value between rolls.</p>
 
 
-
         <div className="dice-container">
         {diceElements}
         </div>
 
-        <button className="Roll_button" onClick={rollDice}>Roll</button>
+        <button className="Roll_button" onClick={rollDice}>{gameWon ? "New Game" : "Roll"}</button>
 
         </main>
 

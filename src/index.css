@@ -83,8 +83,8 @@ main {
 
 .Roll_button {
     font-family: Karla, sans-serif;
-    padding: 15px 30px;
-    font-size: 3rem;
+    padding: 15px 15px;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #ffffff;
     background-color: #ff00ff;
@@ -94,7 +94,7 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* pressed state */
+/* pressed state of Roll_button */
 .Roll_button:active {
     transform: translateY(5px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
