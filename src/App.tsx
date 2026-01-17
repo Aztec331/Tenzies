@@ -4,30 +4,30 @@ import {nanoid} from "nanoid";
 
 export default function App(){
 
+    const [dice, setDice] = useState(generateAllNewDice())
+
     /**
-     * Critical thinking time!
+     * Challenge:
+     * Log "Game won!" to the console only if the 2 winning
+     * conditions are met.
      * 
-     * We want to indicate to the user that the game is over
-     * if (1) all the dice are held, and (2) all the dice have
-     * the same value.
+     * 1. all the dice are being held, and
+     * 2. all the dice have the same value
      * 
-     * How might we do this? Some questions to consider:
-     * 
-     * 1. Do we need to save a `gameWon` value in state? If so, why?
-     *    If not, why not?
-     * 
-     * 
-     * 
-     * 2. Do we need to create a side effect to synchronize the `gameWon`
-     *    value (whether it's in state or not) with the current state of 
-     *    the dice?
-     * 
-     * 
-     * Conclusion:
-     * 
-     * 
-     * 
+     * For now, no need to even save a variable!
      */
+
+    //first condition: all dice have same value as first die
+    //second condition: all dice are held (isHeld = true)
+    if( dice.every( diceObj => 
+        dice[0].value===diceObj.value) 
+        &&
+        dice.every(diceObj => 
+        diceObj.isHeld === true))
+    {
+        console.log("Game won!")
+    }
+
 
     type DiceSetType = {
         value: number,
@@ -46,8 +46,6 @@ export default function App(){
 
         return diceSet
     }
-
-    const [dice, setDice] = useState(generateAllNewDice())
 
     //dice = [1,2,3,4,5,6,1,2,3,4]  // Example array for testing
     //obj means each object in the array
@@ -76,6 +74,9 @@ export default function App(){
     )
 
 }
+
+
+
 
 
     return(
