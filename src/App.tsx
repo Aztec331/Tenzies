@@ -10,6 +10,10 @@ export default function App(){
 
     const { width, height } = useWindowSize();
 
+
+
+    //Check if all dice's isHeld is true and have the same value
+    //store the boolean result in gameWon
     const gameWon = dice.every( diceObj => 
         dice[0].value===diceObj.value) 
         &&
@@ -34,10 +38,10 @@ export default function App(){
         return diceSet
     }
 
-        /**
+    /**
      * Challenge: Allow the user to play a new game when the
      * button is clicked
-     */
+    */
 
     //dice = [1,2,3,4,5,6,1,2,3,4]  // Example array for testing
     //obj means each object in the array
@@ -47,12 +51,21 @@ export default function App(){
     //Shuffle dice values that are not held
     //or dice whose isHeld is false
     function rollDice(){
-        setDice( prev => prev.map( dieObj =>
+      if(gameWon===true){
+        setDice( generateAllNewDice() )
+      }
+
+      else {setDice( prev => prev.map( dieObj =>
             dieObj.isHeld ? 
             dieObj : {...dieObj, value: Math.floor(Math.random() * 6) + 1}
 
         )
-    )
+    )}
+
+
+
+
+
 }
 
     //flips the isHeld property of the die that was clicked
@@ -66,8 +79,6 @@ export default function App(){
     )
 
 }
-
-
 
 
 
