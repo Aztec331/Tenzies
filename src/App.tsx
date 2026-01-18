@@ -62,10 +62,6 @@ export default function App(){
         )
     )}
 
-
-
-
-
 }
 
     //flips the isHeld property of the die that was clicked
@@ -87,7 +83,9 @@ export default function App(){
         <main>
         
         {gameWon && (<Confetti width={width} height={height}/>)}
-
+        <div aria-live="polite" className="sr-only">
+            {gameWon && <p>Congratulations! You won! Press "New Game" to start again.</p>}
+        </div>
         <h1 className="title">Tenzies</h1>
 
         <p className="instructions">
