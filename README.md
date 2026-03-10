@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# 🎲 Tenzies — Dice Game (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
 
-Currently, two official plugins are available:
+Tenzies is an interactive browser-based dice game built with React and TypeScript.
+Players roll dice until all dice show the same value, strategically holding selected dice between rolls to reach the goal in minimum attempts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project focuses on component-driven UI development, state management, and interactive gameplay logic in a modern frontend stack.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## ✨ Features
 
-## Expanding the ESLint configuration
+* 🎲 Roll 10 dice with a single click
+* 📌 Hold/unhold dice to lock values between rolls
+* 🔁 Re-roll only unlocked dice
+* 🧠 Win detection when all dice match
+* 🏆 Roll counter and game progress tracking
+* ⚡ Fast and responsive gameplay experience
+* 📱 Clean and responsive UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Frontend**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* React
+* TypeScript
+* HTML
+* CSS
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/Aztec331/Tenzies.git
+cd Tenzies
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3️⃣ Start development server
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Open in browser
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧩 Project Structure
+
+```
+Tenzies/
+│
+├── src/
+│   ├── components/     # Reusable React components
+│   ├── App.tsx         # Main game logic
+│   ├── main.tsx        # Application entry point
+│   └── styles.css      # Styling
+│
+├── public/             # Static assets
+└── package.json        # Project dependencies
+```
+
+---
+
+## 👨‍💻 My Role
+
+Designed and developed the application end-to-end, including:
+
+* Game logic and win-condition algorithms
+* Component architecture and state management
+* Interactive UI behavior and event handling
+* Type-safe development using TypeScript
+* Responsive layout and styling
+
+---
+
+## 💡 What This Project Demonstrates
+
+* Modern React development with hooks
+* Strong TypeScript integration
+* Component-based architecture
+* State-driven UI updates
+* Event handling and interactive logic
+* Clean frontend project structuring
+
+---
+
+## 📜 License
+
+This project is for educational and portfolio purposes.
